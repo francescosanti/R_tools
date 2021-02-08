@@ -1,15 +1,25 @@
-setwd("~/Università/SGN/Tesi/Digitalizzazione rilievi")
+## Merging abundance releves in a single phytosociological (or presence/absence) table
 
-library(readxl)
+# set your working directory
+# setwd(...)
+
+
+# importing a file containing different sheets with one (or more) releve(s) each
+# in each sheet, the first column contains the taxa, the others the abundance (or presence/absence) values in each releve
+
+library(readxl) # if you have an excel spreadsheet
+
 tab <- list()
 
 for(a in 1:31){
-tab[[a]] <- read_xlsx("Cartel1.xlsx", col_names = F, sheet = a)
-colnames(tab[[a]]) <- c("Specie", 1:(dim(tab[[a]])[2]-1))
-for(b in 1:(dim(tab[[a]])[2]-1)){
-  tab[[a]][which(tab[[a]][,b+1]=="-"),b+1] <- 0 # provare con .... <- ""
-  tab[[a]][which(tab[[a]][,b+1]=="+"),b+1] <- 0.7
-}
+  tab[[a]] <- read_xlsx("Cartel1.xlsx", # if your file is not ".xlsx", use another function to import the file
+                        col_names = F,  # if your spreadsheets have column names, put col_names = T
+                        sheet = a) 
+  colnames(tab[[a]]) <- c("Specie", 1:(dim(tab[[a]])[2]-1))
+  for(b in 1:(dim(tab[[a]])[2]-1)){
+    tab[[a]][which(tab[[a]][,b+1]=="-"),b+1] <- 0 # provare con .... <- ""
+    tab[[a]][which(tab[[a]][,b+1]=="+"),b+1] <- 0.7
+  }
 }
 
 nomi <- tab[[1]][,1]
