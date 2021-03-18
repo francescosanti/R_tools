@@ -11,7 +11,7 @@ library(readxl) # if you have an excel spreadsheet
 
 tab <- list()
 
-for(a in 1:31){
+for(a in 1:length(tab)){
   tab[[a]] <- read_xlsx("Cartel1.xlsx", # if your file is not ".xlsx", use another function to import the file
                         col_names = F,  # if your spreadsheets have column names, put col_names = T
                         sheet = a) 
