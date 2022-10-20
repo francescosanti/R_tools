@@ -52,7 +52,7 @@ data <- matrix(nrow = nlevels(spp), ncol = (sum(as.integer(summary(tab)[,1])) - 
 for(a in 1:nlevels(spp)){
   for(b in 1:length(tab)){
     if(any(tab[[b]][,1]==levels(spp)[a])==T){
-      dati[a, steps[b]:(steps[b+1]-1)] <- as.character(tab[[b]][which(tab[[b]][,1]==levels(spp)[a]),2:(steps[b+1]-steps[b]+1)])
+      data[a, steps[b]:(steps[b+1]-1)] <- as.character(tab[[b]][which(tab[[b]][,1]==levels(spp)[a]),2:(steps[b+1]-steps[b]+1)])
     }
   }
 }
