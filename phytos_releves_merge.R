@@ -10,9 +10,9 @@
 library(readxl) # if you have an excel spreadsheet
 
 tab <- list()
-nrel <- 5 ## BE CAREFUL: insert the total number of your releves 
+nsheets <- 5 ## BE CAREFUL: insert the number of different sheets of your file 
 
-for(a in 1:nrel){
+for(a in 1:nsheets){
   tab[[a]] <- read_xlsx("Cartel1.xlsx", # if your file is not ".xlsx", use another function to import the file
                         col_names = F,  # if your spreadsheets have column names, put col_names = T
                         sheet = a) 
