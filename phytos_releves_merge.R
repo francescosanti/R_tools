@@ -69,4 +69,4 @@ final.tab <- data.frame(taxa, data)
 
 
 # exporting the merged table
-write.csv(final.tab, file = "Merged_tab.csv", quote = F)
+write.csv(final.tab, file = "Merged_tab.csv", quote = F, sep=";")
