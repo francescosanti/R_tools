@@ -17,10 +17,6 @@ for(a in 1:nsheets){
                         col_names = F,  # if your spreadsheets have column names, put col_names = T
                         sheet = a) 
   colnames(tab[[a]]) <- c("Species", 1:(dim(tab[[a]])[2]-1))
-  for(b in 1:(dim(tab[[a]])[2]-1)){
-    tab[[a]][which(tab[[a]][,b+1]=="-"),b+1] <- 0 # provare con .... <- ""
-    tab[[a]][which(tab[[a]][,b+1]=="+"),b+1] <- 0.7
-  }
 }
 
 
